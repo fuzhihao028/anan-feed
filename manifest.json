@@ -1,0 +1,23 @@
+{
+  "id": "/",
+  "name": "安安喂养台",
+  "short_name": "安安",
+  "description": "安安的喂养、睡眠、黄疸、疫苗与妈妈月子记录台",
+  "lang": "zh-CN",
+  "dir": "ltr",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "portrait",
+  "background_color": "#FDF9F4",
+  "theme_color": "#FCEBE2",
+  "prefer_related_applications": false,
+  "categories": ["health", "lifestyle", "productivity"],
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "apple-touch-icon.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}
