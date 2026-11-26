@@ -48,7 +48,7 @@
   .stat .lb{font-size:11px;color:#7A5C3A;}
   .stat .v{font-size:19px;font-weight:600;color:#5A3A1E;margin-top:1px;}
   .stat .s{font-size:10.5px;color:var(--muted);}
-  .rowbtn{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px;}
+  .rowbtn{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px;}
   .rowbtn button{border:1px dashed #E4CBAF;background:#FFFDF9;border-radius:10px;padding:7px 2px;font-size:12px;color:#8A6A45;cursor:pointer;}
   .daynav{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
   .daynav button{width:36px;height:32px;border-radius:9px;border:1px solid var(--line);background:#fff;font-size:15px;cursor:pointer;color:#7A5C3A;}
@@ -83,20 +83,9 @@
   .vbtn.done{background:var(--good-soft);color:var(--good);}
   .selffee{font-size:12.5px;color:#7A5C3A;}
   .selffee li{margin-bottom:5px;}
-  .moodrow{display:flex;gap:8px;justify-content:space-between;}
-  .moodrow button{flex:1;font-size:21px;background:#fff;border:1px solid var(--line);border-radius:11px;padding:8px 0;cursor:pointer;}
-  .moodrow button.sel{background:var(--accent-soft);border-color:var(--accent);}
   .ck{display:flex;align-items:flex-start;gap:8px;font-size:13px;padding:5px 0;}
   .ck input{margin-top:3px;}
-  .accordion{border-bottom:1px solid var(--line);}
-  .accordion:last-child{border-bottom:0;}
-  .accordion .ah{display:flex;align-items:center;gap:8px;padding:11px 2px;font-size:14px;cursor:pointer;}
-  .accordion .ah .ar{margin-left:auto;color:var(--muted);transition:.2s;}
-  .accordion.open .ar{transform:rotate(90deg);}
-  .accordion .ab{display:none;padding:0 2px 12px;font-size:13px;}
-  .accordion.open .ab{display:block;}
-  .accordion .ab p{margin:4px 0;}
-  .tabs{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(5,1fr);padding:6px 4px calc(env(safe-area-inset-bottom) + 8px);z-index:30;max-width:520px;margin:0 auto;}
+  .tabs{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(3,1fr);padding:6px 4px calc(env(safe-area-inset-bottom) + 8px);z-index:30;max-width:520px;margin:0 auto;}
   .tabs button{border:0;background:none;cursor:pointer;text-align:center;color:#A08A72;}
   .tabs button .i{font-size:19px;}
   .tabs button p{margin:1px 0 0;font-size:10.5px;}
@@ -119,12 +108,6 @@
   .tagwrap{display:flex;flex-wrap:wrap;gap:7px;}
   .tagwrap button{border:1px solid var(--line);background:#fff;border-radius:18px;padding:6px 12px;font-size:12.5px;cursor:pointer;color:#5A4636;}
   .tagwrap button.sel{background:var(--accent-soft);border-color:var(--accent);color:var(--accent);}
-  .reason{border:1px solid var(--line);border-radius:12px;padding:11px;margin-bottom:9px;background:#fff;}
-  .reason .rh{font-size:13.5px;font-weight:600;display:flex;align-items:center;gap:6px;}
-  .reason .rp{font-size:12px;color:var(--muted);margin-top:2px;}
-  .reason .rs{background:#FFF9F1;border-radius:9px;padding:8px 10px;font-size:12.5px;margin-top:7px;color:#7A5A2E;}
-  .reason.r-bad{border-color:#F2C9C9;background:#FFF8F8;}
-  .reason.r-bad .rs{background:var(--bad-soft);color:#7A1F1F;}
   .kv{display:flex;justify-content:space-between;font-size:13.5px;padding:7px 0;border-bottom:1px solid var(--line);}
   .kv:last-child{border-bottom:0;}
   .kv b{font-weight:600;}
@@ -140,15 +123,6 @@
   .installbar .txt b{display:block;font-size:13.5px;color:var(--ink);}
   .installbar .go{border:0;background:var(--accent);color:#fff;font-size:13px;padding:7px 13px;border-radius:10px;font-weight:600;cursor:pointer;flex-shrink:0;}
   .installbar .x{border:0;background:none;color:#B9A593;font-size:16px;padding:0 2px;cursor:pointer;flex-shrink:0;}
-  .newsitem{padding:9px 0;border-bottom:1px solid var(--line);cursor:pointer;}
-  .newsitem:last-child{border-bottom:0;padding-bottom:2px;}
-  .newsitem .nt{font-size:13.5px;font-weight:500;color:var(--ink);line-height:1.45;}
-  .newsitem .nm{font-size:11.5px;color:var(--muted);margin-top:3px;display:flex;gap:6px;align-items:center;}
-  .ntag{display:inline-block;padding:1px 7px;border-radius:8px;font-size:10.5px;font-weight:600;}
-  .ntag.健康{background:var(--good-soft);color:var(--good);}
-  .ntag.召回{background:var(--bad-soft);color:var(--bad);}
-  .ntag.杭州{background:var(--accent-soft);color:var(--accent);}
-  .ntag.政策{background:var(--warn-soft);color:var(--warn);}
 </style>
 </head>
 <body>
@@ -167,9 +141,7 @@
 <nav class="tabs" id="tabs">
   <button data-t="today" class="active" onclick="switchTab('today')"><div class="i">🏠</div><p>今日</p></button>
   <button data-t="log" onclick="switchTab('log')"><div class="i">📋</div><p>记录</p></button>
-  <button data-t="cry" onclick="switchTab('cry')"><div class="i">🤔</div><p>哭闹</p></button>
   <button data-t="vacc" onclick="switchTab('vacc')"><div class="i">💉</div><p>疫苗</p></button>
-  <button data-t="mom" onclick="switchTab('mom')"><div class="i">👩</div><p>妈妈</p></button>
 </nav>
 <div class="overlay" id="overlay" onclick="if(event.target===this)closeSheet()"><div class="sheet" id="sheet"></div></div>
 <div class="installbar" id="installbar">
@@ -185,7 +157,6 @@
 /* ================= 基础数据 ================= */
 const BIRTH = new Date(2026,9,26,14,0,0);          // 2026-10-26 下午
 const KEY = 'anan_feeding_v1';
-const D3_NOTE = '奶粉150-200ml仅提供约110-160IU维D，需每天补D3 400IU（如星鲨D3胶囊型，每天1粒）；维生素A靠母乳+奶粉已够，无需补AD。若吃AD后烦躁哭闹，改单补D3观察 3-5 天。';
 
 function load(){ try{ return JSON.parse(localStorage.getItem(KEY)); }catch(e){ return null; } }
 let S = load();
@@ -194,8 +165,7 @@ if(!S){
   const base = Date.UTC(2026,10,13) - 8*3600e3; // 2026-11-13
   S = { records:[
     {id:1,ts:base,t:'weight',d:{v:3640,note:'月子中心称重基线'}},
-    {id:2,ts:base,t:'jaun',d:{v:10.9,note:'经皮黄疸基线'}},
-    {id:3,ts:base,t:'note',d:{txt:'混合喂养：母乳（亲喂+瓶喂）+ 奶粉150-200ml/天；未补AD/D，待补D3 400IU/天'}}
+    {id:3,ts:base,t:'note',d:{txt:'混合喂养：母乳（亲喂+瓶喂）+ 奶粉150-200ml/天；每天补D3 400IU'}}
   ], vacc:{0:{done:true,note:'出生时已接种（默认勾选，可修改）'}}, mood:{} };
   save();
 }
@@ -279,126 +249,76 @@ function toggleVac(i,el){
   save();render();
 }
 
-/* ================= 喂奶上下文（哭闹推断用） ================= */
-function lastFeedBefore(ts){
-  const arr=S.records.filter(r=>r.t==='feed'&&r.ts<=ts).sort((a,b)=>b.ts-a.ts);
-  return arr[0]||null;
-}
-function lastDiaperBefore(ts){
-  const arr=S.records.filter(r=>r.t==='diaper'&&r.ts<=ts).sort((a,b)=>b.ts-a.ts);
-  return arr[0]||null;
-}
-function tempAlert(ts){
-  const t=S.records.filter(r=>r.t==='temp'&&r.ts<=ts&&ts-r.ts<864e5).sort((a,b)=>b.ts-a.ts)[0];
-  if(!t)return null;
-  if(t.d.v>=37.5||t.d.v<36.0)return t.d.v;
-  return null;
-}
-
-/* ================= 哭闹推断引擎 ================= */
-const CRY_TAGS=[
-  {k:'long',txt:'距上次喂奶较久了'},
-  {k:'justFed',txt:'刚喂过不久（1小时内）'},
-  {k:'diaper',txt:'尿布可能脏了/湿了'},
-  {k:'legs',txt:'蹬腿、扭动、脸涨红'},
-  {k:'spit',txt:'刚吐过奶'},
-  {k:'evening',txt:'傍晚/晚上固定时间哭'},
-  {k:'sleepy',txt:'揉眼、打哈欠'},
-  {k:'sharp',txt:'哭声尖或异常微弱'},
-  {k:'fever',txt:'摸着发热/体温异常'},
-  {k:'unknown',txt:'找不到明显原因'}
-];
-const SOLUTIONS={
-  hunger:{name:'饿了',icon:'🍼',
-    show:c=>c.gap>=2.5,
-    text:'距上次喂奶已 <b>{h} 小时</b>，这个月龄一般 2-3 小时一喂，先喂再说。',
-    solve:'按需喂养：亲喂看吞咽声和时长；奶粉按 60-90ml/次起，喝完拍嗝 10-15 分钟。喂完还哭再排查别的原因。'},
-  diaper:{name:'尿布不适',icon:'🧷',
-    show:c=>c.diaperPend,
-    text:'上次换尿布已 <b>{h} 小时</b>，且之后有喂奶，大概率有尿/便。',
-    solve:'先开包检查。有大便立即温水洗/湿巾擦净，涂护臀膏防红屁股。男宝换尿布时注意盖一下防尿喷。'},
-  gas:{name:'肠胀气/肠绞痛',icon:'💨',
-    show:c=>c.tags.legs||c.tags.spit||c.tags.evening,
-    text:'蹬腿扭脸、吐奶或傍晚定时哭，是典型的肠胀气/绞痛表现（2周-3月高发，6周达峰）。',
-    solve:'① 排气操：以肚脐为中心顺时针揉腹 1-2 分钟 → 双腿蹬自行车 10-20 次 → I Love U 按摩；② 飞机抱 10-15 分钟；③ 每次喂完竖抱拍嗝；④ 哭闹剧烈时用 5S 安抚法（襁褓包裹、侧卧位、嘘声/白噪音、轻摇、吸吮）。多数 3-4 月龄自行好转。'},
-  sleepy:{name:'困了/过度疲劳',icon:'😴',
-    show:c=>c.tags.sleepy||(c.tags.justFed&&!c.tags.legs),
-    text:'刚吃饱还哭、或出现揉眼打哈欠，多半是困了。新生儿清醒 45-60 分钟就该睡。',
-    solve:'调暗灯光、减少逗弄，襁褓包裹 + 白噪音，轻拍哄睡。别等哭狠了再哄，越累越难睡。'},
-  env:{name:'环境不适（太热/太冷/想要安抚）',icon:'🌡️',
-    show:c=>c.tags.unknown||c.tags.justFed,
-    text:'排除饿、尿布、胀气后，先摸后颈判断冷热：出汗黏=热，凉=冷。',
-    solve:'后颈温热无汗为宜；热了减一层、冷了加一层或贴身抱。仍哭就抱起来走动、轻拍、白噪音，新生儿需要抱不惯坏。'},
-  sick:{name:'⚠️ 疑似生病——建议就医',icon:'🏥',
-    show:c=>c.tags.sharp||c.tags.fever||c.fever,
-    text:'哭声尖/异常微弱、或体温异常（<b>{temp}</b>），新生儿病情变化快，不要观望。',
-    solve:'立即测体温：腋温≥37.3℃需重视，≥37.5℃或<36.0℃直接就医；观察是否拒奶、精神差、囟门凸起、面色差。夜里拿不准也别拖，就近儿科急诊。'}
-};
-function inferCry(tags,ts){
-  const c={tags:tags,fever:null};
-  const lf=lastFeedBefore(ts);
-  c.gap=lf?(ts-lf.ts)/36e5:3;
-  const ld=lastDiaperBefore(ts);
-  c.diaperGap=ld?(ts-ld.ts)/36e5:9;
-  c.diaperPend=tags.diaper||c.diaperGap>2.5;
-  c.fever=tempAlert(ts);
-  const out=[];
-  const order=['sick','hunger','diaper','gas','sleepy','env'];
-  order.forEach(k=>{
-    const s=SOLUTIONS[k];
-    if(s.show(c)){
-      out.push({k:k,name:s.name,icon:s.icon,
-        text:s.text.replace('{h}',c.gap.toFixed(1)).replace('{temp}',c.fever?c.fever+'℃':'—'),
-        solve:s.solve});
-    }
-  });
-  if(!out.length){out.push({k:'env',name:'需要安抚',icon:'🤗',text:'暂无典型信号，先按「冷热→喂→换→抱」顺序排查。',solve:'摸后颈判断冷热；抱起走动+白噪音；仍持续哭超过2小时或精神差，联系医生。'});}
-  return {reasons:out,ctx:c};
-}
-
 /* ================= 今日页 ================= */
+/* ================= 睡眠 ================= */
+function openSleep(){          // 没有进行中的睡眠 → 开始；有 → 结束
+  const open=records().find(r=>r.t==='sleep'&&r.d.start&&!r.d.end);
+  if(open){
+    open.d.end=Date.now();
+    save();render();
+    toast('醒了 ✓ 本次睡 '+fmtDur(Date.now()-open.d.start));
+  }else{
+    addRec('sleep',{start:Date.now()});
+    toast('开始记录睡眠 💤');
+  }
+}
+function fmtDur(ms){const m=Math.round(ms/6e4);return Math.floor(m/60)+' 时 '+m%60+' 分';}
+function sleepMinutesDay(dk){ // 某天完成的睡眠总分钟
+  let m=0;
+  S.records.forEach(r=>{
+    if(r.t!=='sleep'||!r.d.start||!r.d.end)return;
+    if(dayKey(r.d.start)!==dk)return;
+    m+=Math.max(0,(r.d.end-r.d.start))/6e4;
+  });
+  return Math.round(m);
+}
+function sleepingNow(){
+  return records().find(r=>r.t==='sleep'&&r.d.start&&!r.d.end)||null;
+}
+
 function statToday(){
   const dk=dayKey(Date.now());
   const feeds=recsOf(dk,'feed');
-  let bf=0,ff=0,bfMin=0,bfMl=0;
-  feeds.forEach(r=>{if(r.d.mode==='formula')ff+=+r.d.ml||0;else if(r.d.mode==='bf-bottle')bfMl+=+r.d.ml||0;else{bf++;bfMin+=+r.d.min||0;}});
-  return {feeds:feeds.length,bf:bf+feeds.filter(r=>r.d.mode==='bf-bottle').length,ff,ffMl:ff,bfMl,bfMin,
+  let bf=0,ff=0,bfMin=0,bfMl=0,ffMl=0;
+  feeds.forEach(r=>{if(r.d.mode==='formula'){ff++;ffMl+=+r.d.ml||0;}else if(r.d.mode==='bf-bottle'){bfMl+=+r.d.ml||0;}else{bf++;bfMin+=+r.d.min||0;}});
+  return {feeds:feeds.length,ffMl,bfMl,bfMin,
+    totalMl:ffMl+bfMl,
+    sleepMin:sleepMinutesDay(dk),
     wet:recsOf(dk,'diaper').filter(r=>r.d.wet).length,
     stool:recsOf(dk,'diaper').filter(r=>r.d.stool).length};
 }
-function moodCellHtml(){
-  if(S.mood[dayKey(Date.now())])return '已打 ✓';
-  return '<span style="color:var(--accent);cursor:pointer" onclick="openMood()">去打卡 →</span>';
-}
 function viewToday(){
   const st=statToday();
-  const ad=ageDays();
-  const fullMoon=new Date(BIRTH.getTime()+30*864e5);
   const vdToday=recsOf(dayKey(Date.now()),'vitd').length>0;
-  const lastJ=latestOf('jaun'),lastW=latestOf('weight'),lastT=latestOf('temp');
-  const lastCry=records().find(r=>r.t==='cry');
-  let cryHtml='';
-  if(lastCry){
-    const r0=lastCry.d.res&&lastCry.d.res.reasons?lastCry.d.res.reasons[0]:null;
-    cryHtml=`<div class="card"><h2>🤔 最近哭闹 <span class="more" onclick="switchTab('cry')">查看哭闹页 ›</span></h2>
-      <div class="muted">${fmtD(lastCry.ts)} ${fmtT(lastCry.ts)}</div>
-      ${r0?`<div style="font-size:13.5px;margin-top:6px;">推断：<b>${r0.icon} ${r0.name}</b></div><div class="adv">${r0.solve}</div>`:'<div class="muted">无推断结果</div>'}</div>`;
+  const lastW=latestOf('weight');
+  const slp=sleepingNow();
+  // 体重周增
+  let wGain='';
+  if(lastW){
+    const prev=records().filter(r=>r.t==='weight'&&r.ts<lastW.ts).sort((a,b)=>b.ts-a.ts)[0];
+    if(prev){
+      const days=Math.max(1,Math.round((lastW.ts-prev.ts)/864e5));
+      const per=Math.round((lastW.d.v-prev.d.v)/days*7);
+      wGain=' · 7天'+(per>=0?'+':'')+per+'g';
+    }
   }
+  // 妈妈检查倒计时（过完自动淡化）
+  const cd=daysUntil(new Date(2026,11,7));
+  const momLine=cd>0?`<div class="vacstrip" style="margin-top:0;">👩 42天产后检查 <b>12月7日 · 还有 ${cd} 天</b></div>`:
+    (cd>=-7?'<div class="vacstrip" style="margin-top:0;">👩 42天产后检查已到期，尽快预约（B超/盆底肌/伤口 + 安安体检）</div>':'');
+  const sleepV=slp?'睡觉中 · '+fmtDur(Date.now()-slp.start):(Math.floor(st.sleepMin/60)+'h'+(st.sleepMin%60?st.sleepMin%60+'m':''));
   return `
   <div class="quick">
     <div class="qbtn" onclick="openFeed()"><div class="ic">🍼</div><p>记喂奶</p></div>
+    <div class="qbtn" onclick="openSleep()"><div class="ic">😴</div><p>${slp?'睡醒了':'睡觉了'}</p></div>
     <div class="qbtn" onclick="openDiaper()"><div class="ic">🧷</div><p>换尿布</p></div>
-    <div class="qbtn" onclick="openCry()"><div class="ic">😭</div><p>哭了</p></div>
-    <div class="qbtn" onclick="openTemp()"><div class="ic">🌡️</div><p>量体温</p></div>
-  </div>
-  <div class="card"><h2>📰 今日要闻 <span class="more" id="newsup"></span></h2>
-    <div id="newswrap"><div class="muted">加载中…</div></div>
+    <div class="qbtn" onclick="openWeight()"><div class="ic">⚖️</div><p>称体重</p></div>
   </div>
   <div class="card" style="padding:12px;">
     <div style="display:flex;align-items:center;gap:10px;">
       <div style="flex:1;">
         <div style="font-size:14px;font-weight:600;">💧 维生素D3 每日打卡</div>
-        <div class="muted" style="margin-top:2px;">${vdToday?'今天已补 ✓':'今天还没补 · '+D3_NOTE}</div>
+        <div class="muted" style="margin-top:2px;">${vdToday?'今天已补 ✓':'今天还没补 · 每天 400IU'}</div>
       </div>
       <button class="vbtn ${vdToday?'done':''}" onclick="addVitD()">${vdToday?'已打卡':'打卡'}</button>
     </div>
@@ -406,23 +326,18 @@ function viewToday(){
   <div class="card"><h2>📊 今天 · ${fmtD(Date.now())}</h2>
     <div class="stats">
       <div class="stat"><div class="lb">喂奶</div><div class="v">${st.feeds}</div><div class="s">次</div></div>
-      <div class="stat"><div class="lb">小便</div><div class="v">${st.wet}</div><div class="s">次</div></div>
-      <div class="stat"><div class="lb">大便</div><div class="v">${st.stool}</div><div class="s">次</div></div>
-      <div class="stat"><div class="lb">奶粉</div><div class="v">${st.ffMl}</div><div class="s">ml</div></div>
+      <div class="stat"><div class="lb">瓶奶量</div><div class="v">${st.totalMl}</div><div class="s">ml</div></div>
+      <div class="stat"><div class="lb">睡眠</div><div class="v" style="font-size:15px;">${sleepV}</div><div class="s">今日累计</div></div>
+      <div class="stat"><div class="lb">大便</div><div class="v">${st.stool}</div><div class="s">次 · 尿${st.wet}</div></div>
     </div>
-    <div class="muted" style="margin-top:8px;">母乳：亲喂 ${st.bfMin} 分钟 + 瓶喂 ${st.bfMl} ml　|　体温${lastT?' '+lastT.d.v+'℃':'未测'}　黄疸${lastJ?' '+lastJ.d.v:'未测'}</div>
+    <div class="muted" style="margin-top:8px;">母乳：亲喂 ${st.bfMin} 分钟 + 瓶喂 ${st.bfMl} ml　|　体重${lastW?' '+lastW.d.v+'g（'+fmtD(lastW.ts)+'）'+wGain:'未记'}</div>
     <div class="rowbtn">
-      <button onclick="openJaun()">🟡 黄疸</button>
-      <button onclick="openWeight()">⚖️ 体重</button>
+      <button onclick="openTemp()">🌡️ 体温</button>
       <button onclick="openSpit()">🤮 吐奶</button>
-      <button onclick="openSkin()">🩹 皮肤</button>
+      <button onclick="openNote()">📝 自由记</button>
     </div>
   </div>
-  ${cryHtml}
-  <div class="card"><h2>👩 妈妈 <span class="more" onclick="switchTab('mom')">更多 ›</span></h2>
-    <div class="kv"><span>产后天数 / 42天检查</span><b>第 ${ad} 天 · ${daysUntil(new Date(2026,11,7))<=0?'已到':daysUntil(new Date(2026,11,7))+' 天后'}</b></div>
-    <div class="kv"><span>今日情绪打卡</span><b>${moodCellHtml()}</b></div>
-  </div>`;
+  ${momLine}`;
 }
 function addVitD(){ if(recsOf(dayKey(Date.now()),'vitd').length){toast('今天已打过卡啦');return;} addRec('vitd',{}); }
 
@@ -434,7 +349,7 @@ function shiftDay(n){
   viewDay=dayKey(d.getTime());
   render();
 }
-const ICONS={feed:'🍼',diaper:'🧷',cry:'😭',temp:'🌡️',jaun:'🟡',weight:'⚖️',spit:'🤮',skin:'🩹',med:'💊',vitd:'💧',mood:'😀',note:'📝'};
+const ICONS={feed:'🍼',diaper:'🧷',sleep:'😴',cry:'😭',temp:'🌡️',jaun:'🟡',weight:'⚖️',spit:'🤮',skin:'🩹',med:'💊',vitd:'💧',mood:'😀',note:'📝'};
 function recLine(r){
   const d=r.d;
   if(r.t==='feed'){
@@ -450,7 +365,11 @@ function recLine(r){
     if(d.stool)parts.push('便 ✓'+(d.color?' '+d.color:'')+(d.tex?' '+d.tex:''));
     return parts.join(' · ')||'尿布检查';
   }
-  if(r.t==='cry')return '哭闹 → '+(d.res&&d.res.reasons&&d.res.reasons[0]?d.res.reasons[0].icon+' '+d.res.reasons[0].name:'（未推断）');
+  if(r.t==='sleep'){
+    if(!d.end)return '睡觉中…';
+    return '睡眠 '+fmtDur(d.end-d.start)+(d.note?' · '+esc(d.note):'');
+  }
+  if(r.t==='cry')return '哭闹（旧记录）';
   if(r.t==='temp')return '体温 '+d.v+' ℃';
   if(r.t==='jaun')return '黄疸（经皮）'+d.v+(d.note?' · '+esc(d.note):'');
   if(r.t==='weight')return '体重 '+d.v+' g';
@@ -482,11 +401,11 @@ function chartFor(type,unit,warn){
 function viewLog(){
   const day=viewDay;
   const list=recsOf(day);
-  const st={feeds:recsOf(day,'feed').length,wet:recsOf(day,'diaper').filter(r=>r.d.wet).length,stool:recsOf(day,'diaper').filter(r=>r.d.stool).length};
+  const st={feeds:recsOf(day,'feed').length,wet:recsOf(day,'diaper').filter(r=>r.d.wet).length,stool:recsOf(day,'diaper').filter(r=>r.d.stool).length,
+    sleepMin:sleepMinutesDay(day)};
   let warnHtml='';
   list.forEach(r=>{
     if(r.t==='temp'&&r.d.v>=37.5)warnHtml=`<div class="banner bn-bad">🚨 ${fmtT(r.ts)} 体温 ${r.d.v}℃ —— 新生儿腋温≥37.5℃建议就医</div>`;
-    if(r.t==='jaun'&&r.d.v>=13)warnHtml=`<div class="banner bn-warn">⚠️ ${fmtT(r.ts)} 黄疸 ${r.d.v} 偏高，建议联系医生</div>`;
   });
   return `
   <div class="daynav">
@@ -495,72 +414,25 @@ function viewLog(){
     <button onclick="shiftDay(1)">›</button>
   </div>
   <div class="chiprow">
-    <span class="chip">🍼 喂奶 ${st.feeds}</span><span class="chip">💧 尿 ${st.wet}</span><span class="chip">💩 便 ${st.stool}</span>
+    <span class="chip">🍼 喂奶 ${st.feeds}</span><span class="chip">😴 睡眠 ${Math.floor(st.sleepMin/60)}h${st.sleepMin%60}m</span><span class="chip">💧 尿 ${st.wet}</span><span class="chip">💩 便 ${st.stool}</span>
   </div>
   ${warnHtml}
   <div class="card">
     ${list.length?`<ul class="tl">${list.map(r=>`<li><div class="ic">${ICONS[r.t]||'•'}</div><div class="bd"><div class="tt">${recLine(r)}</div><div class="tm">${fmtT(r.ts)}</div></div><button class="del" onclick="delRec('${r.id}')">✕</button></li>`).join('')}</ul>`:'<div class="empty">这一天还没有记录</div>'}
   </div>
-  <div class="card"><h2>🟡 黄疸趋势</h2>${chartFor('jaun','',12)}
-    <div class="muted" style="margin-top:6px;">正常趋势：平稳或下降。若持续上升、或大便发白/尿很黄，立即就医（警惕胆道闭锁）。</div></div>
   <div class="card"><h2>⚖️ 体重趋势（g）</h2>${chartFor('weight','g',null)}
-    <div class="muted" style="margin-top:6px;">新生儿期理想增速约 25-30 g/天，每周称 1-2 次即可。</div></div>`;
-}
-
-/* ================= 哭闹页 ================= */
-function viewCry(){
-  const cries=records().filter(r=>r.t==='cry');
-  const list=cries.map(r=>{
-    const rs=(r.d.res&&r.d.res.reasons)||[];
-    return `<div class="card"><div class="muted">${fmtD(r.ts)} ${fmtT(r.ts)}${r.d.tags&&r.d.tags.length?' · 勾选了：'+r.d.tags.join('、'):''}</div>
-    ${rs.map((x,i)=>`<div class="reason ${i===0&&x.k==='sick'?'r-bad':''}" style="margin-top:${i===0?'8px':'6px'};">
-      <div class="rh">${x.icon} ${i===0?'最可能':'其次'}：${x.name}</div><div class="rp">${x.text}</div><div class="rs"><b>解决办法：</b>${x.solve}</div></div>`).join('')}
-    <button class="del" style="color:#C9AE8E;font-size:12px;border:0;background:none;cursor:pointer;" onclick="delRec('${r.id}')">删除此条</button></div>`;
-  }).join('');
-  return `
-  <div class="card" style="background:linear-gradient(120deg,#FCEBE2,#FBEAF0);">
-    <div style="font-size:14.5px;font-weight:600;">😭 安安哭了？</div>
-    <div class="muted" style="margin:4px 0 10px;">点下面记录哭闹，勾选当时看到的情况，我会结合喂奶/尿布/体温自动推断原因 + 给解决办法。</div>
-    <button class="savebtn" onclick="openCry()">记录一次哭闹</button>
-  </div>
-  <div class="card"><h2>📮 今日研判（豆豆人工版）</h2>
-    <div class="muted">把今天的记录复制发给豆豆（WorkBuddy），我会结合近期模式给你一条整体研判（比如「连续 3 天傍晚 6 点哭，高度怀疑肠绞痛」）。</div>
-    <button class="btn2" style="margin-top:10px;" onclick="copyToday()">📋 复制今日记录</button>
-  </div>
-  ${list||'<div class="card"><div class="empty">还没有哭闹记录</div></div>'}
-  <div class="sectitle">📖 常见哭闹原因速查（点开看解决办法）</div>
-  <div class="card" style="padding:2px 14px;">
-    ${['hunger','diaper','gas','sleepy','env','sick'].map(k=>accordion(k)).join('')}
-  </div>`;
-}
-function accordion(k){
-  const s=SOLUTIONS[k];
-  return `<div class="accordion" onclick="this.classList.toggle('open')"><div class="ah">${s.icon} ${s.name} <span class="ar">›</span></div>
-  <div class="ab"><p>${s.solve}</p>${k==='sick'?'<p><b>新生儿危险信号（任一出现直接就医）：</b>腋温≥37.5℃或<36℃、拒奶、精神差嗜睡、囟门明显凸起、面色苍白发灰、呼吸急促。</p>':''}</div></div>`;
-}
-function copyToday(){
-  const dk=dayKey(Date.now());
-  const list=recsOf(dk);
-  let txt='【安安今日记录 '+dk+'】出生第'+ageDays()+'天\n';
-  list.forEach(r=>{txt+=fmtT(r.ts)+' '+ICONS[r.t]+' '+recLine(r)+'\n';});
-  const lj=latestOf('jaun'),lw=latestOf('weight');
-  if(lj)txt+='最近黄疸：'+lj.d.v+'（'+fmtD(lj.ts)+'）\n';
-  if(lw)txt+='最近体重：'+lw.d.v+'g（'+fmtD(lw.ts)+'）\n';
-  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(()=>toast('已复制，去发给豆豆吧')); }
-  else{toast('复制失败，长按截图也行');}
+    <div class="muted" style="margin-top:6px;">满月后理想增速约 150-200 g/周，每周固定同一秤称 1 次即可。</div></div>`;
 }
 
 /* ================= 疫苗页 ================= */
 function viewVacc(){
   const nx=nextVac();
-  const lj=latestOf('jaun');
-  const jWarn=lj&&lj.d.v>=10&&nx?`<div class="banner bn-warn">⚠️ 最近黄疸 ${lj.d.v}（${fmtD(lj.ts)}）：部分社区医院经皮值偏高会缓打疫苗。${nx?'<b>'+fmtD(nx.date)+'</b> 去打之前先电话确认。':''}</div>`:'';
   const nxHtml=nx?`<div class="card" style="background:linear-gradient(120deg,#FCEBE2,#FDEEDC);">
     <div style="font-size:13px;color:#993C1D;">下一针</div>
     <div style="font-size:16px;font-weight:600;margin:2px 0;">${VACC[nx.i].n}</div>
     <div style="font-size:13px;">${fmtD(nx.date)} · <b style="color:var(--accent);">${nx.late?'已到期，尽快补打':nx.days<=0?'就是今天！':'还有 '+nx.days+' 天'}</b></div>
   </div>`:'<div class="card"><div class="empty">1 岁内必打疫苗全部完成 🎉</div></div>';
-  return `${jWarn}${nxHtml}
+  return `${nxHtml}
   <div class="card"><h2>💉 国家免疫规划（必打·免费）</h2>
     ${VACC.map((v,i)=>{
       const dt=vacDate(v.off),st=S.vacc[i];
@@ -573,62 +445,10 @@ function viewVacc(){
         <button class="vbtn ${st&&st.done?'done':''}" onclick="toggleVac(${i})">${st&&st.done?'✓ 已打':'标记已打'}</button>
       </div>`;
     }).join('')}
-    <div class="muted" style="margin-top:8px;">日期按出生 2026-10-26 自动推算，实际以社区医院预约为准。黄疸值偏高时疫苗可能被缓打，之后会自动顺延下一针提醒。</div>
+    <div class="muted" style="margin-top:8px;">日期按出生 2026-10-26 自动推算，实际以社区医院预约为准；打完点「标记已打」，提醒自动顺延到下一针。</div>
   </div>
   <div class="card"><h2>💰 自费疫苗（参考，可选）</h2><ul class="selffee" style="margin:0;padding-left:18px;">${SELFVACC.map(s=>'<li>'+s+'</li>').join('')}</ul></div>`;
 }
-
-/* ================= 妈妈页 ================= */
-function viewMom(){
-  const ad=ageDays();
-  const chkDate=new Date(2026,11,7);
-  const cd=daysUntil(chkDate);
-  const lochia= ad<=3?'血性恶露期（产后1-4天）：鲜红、量多，有血块及时告知医生':
-    ad<=10?'浆液性恶露期（产后4-10天）：粉红/淡红、量渐少':
-    ad<=21?'浆液性→白色过渡期：淡红或黄白，量少':
-    '白色恶露期（产后3周后）：白/淡黄、很少。若突然变回鲜红大量出血或异味发热，及时就医';
-  const moodToday=S.mood[dayKey(Date.now())];
-  let lowStreak=0;
-  for(let i=0;i<7;i++){const d=new Date();d.setDate(d.getDate()-i);const k=dayKey(d.getTime());if(S.mood[k]&&S.mood[k]<=2)lowStreak++;else if(S.mood[k])break;else break;}
-  const moodWarn=lowStreak>=3?'<div class="banner bn-bad">🧡 连续 '+lowStreak+' 天情绪低落——产后激素波动很常见，但请告诉家人并考虑和月子中心护士/医生聊聊，你不需要一个人扛。</div>':'';
-  const lastMood=Object.keys(S.mood).sort().pop();
-  return `
-  ${moodWarn}
-  <div class="card" style="background:linear-gradient(120deg,#FBEAF0,#FCEBE2);">
-    <div style="font-size:14.5px;font-weight:600;">👩 产后第 ${ad} 天 · 剖宫产</div>
-    <div class="muted" style="margin-top:2px;">42 天产后检查：12月7日 ${cd>0?'· 还有 '+cd+' 天':'· 已到期，尽快预约！'}</div>
-  </div>
-  <div class="card"><h2>😊 今日情绪打卡</h2>
-    <div class="moodrow">${['😞','😕','😐','🙂','😊'].map((e,i)=>`<button class="${moodToday===i+1?'sel':''}" onclick="setMood(${i+1})">${e}</button>`).join('')}</div>
-    ${lastMood?'<div class="muted" style="margin-top:6px;">上次打卡：'+lastMood+'</div>':'<div class="muted" style="margin-top:6px;">每天点一个表情即可，连续低落我会提醒你。</div>'}
-  </div>
-  <div class="card"><h2>🌸 恶露阶段（自动判断）</h2><div style="font-size:13.5px;">${lochia}</div></div>
-  <div class="card"><h2>🩹 剖宫产伤口观察点</h2>
-    <div class="ck">• 伤口周围红肿、渗液、开裂 → 联系医生</div>
-    <div class="ck">• 疼痛应逐周减轻，突然剧痛要重视</div>
-    <div class="ck">• 疤痕增生期（1-3月）发痒发紧属正常，可用硅酮类护理</div>
-  </div>
-  <div class="card"><h2>📅 42天检查清单（12月7日前后）</h2>
-    <div class="ck">☐ 妈妈：B超（子宫复旧、切口）、盆底肌评估、伤口检查、血常规</div>
-    <div class="ck">☐ 安安：体重身长头围、黄疸复查（消退延迟必查）、髋关节、脐部</div>
-    <div class="ck">☐ 带上：出院小结、疫苗接种本</div>
-  </div>
-  <div class="card"><h2>🍚 出月子回家怎么吃（哺乳期）</h2>
-    <div class="accordion" onclick="this.classList.toggle('open')"><div class="ah">✅ 怎么吃 <span class="ar">›</span></div>
-      <div class="ab"><p>原则：均衡+多水。每天比孕前多 500 kcal 左右即可，不需要顿顿浓汤。</p><p>下奶主力是「频繁吸吮+水分」：每餐配汤水/牛奶 300-500ml，喝汤撇掉浮油防堵奶。</p><p>优质蛋白每天有：鱼、瘦肉、蛋、豆制品；主食粗细搭配；蔬菜水果正常吃（不是「寒凉」不能碰）。</p></div></div>
-    <div class="accordion" onclick="this.classList.toggle('open')"><div class="ah">🚫 忌口与慎吃 <span class="ar">›</span></div>
-      <div class="ab"><p><b>酒：</b>哺乳期不喝。喝了的话等 2-3 小时再亲喂或提前存奶。</p><p><b>咖啡因：</b>每天 ≤1 杯咖啡（约200mg咖啡因），浓茶少喝，安安如果出现烦躁失眠就停。</p><p><b>回奶个体差异：</b>韭菜、山楂等因人而异，不必刻意避，观察奶量即可。</p><p><b>用药：</b>哺乳期用药先问医生/药师，多数常见药有哺乳期安全选择，别硬扛。</p></div></div>
-    <div class="accordion" onclick="this.classList.toggle('open')"><div class="ah">🏠 回家过渡期（月子中心→家） <span class="ar">›</span></div>
-      <div class="ab"><p>第一周只做三件事：适应环境、恢复体力、建立安安在家的作息记录（这个台子就是干这个的）。</p><p>家务和做饭分给家人/钟点工，你的任务是睡够+喂奶+打卡。</p><p>42天检查别省，回家路上再累也要去。</p></div></div>
-  </div>
-  <div class="card"><h2>🛏️ 安安睡眠安全</h2>
-    <div class="ck">✓ 仰卧睡，床上只放床垫+床单，不放枕头/玩偶/防卷枕</div>
-    <div class="ck">✓ <b>同房不同床</b>，最安全；喂夜奶坐起来喂，喂完放回小床</div>
-    <div class="ck">✓ 防捂热：摸后颈温热无汗为宜，别裹太厚（捂热综合征风险）</div>
-    <div class="ck">✓ 睡觉环境 24-26℃，湿度 50-60%</div>
-  </div>`;
-}
-function setMood(v){S.mood[dayKey(Date.now())]=v;save();render();toast('已打卡 '+['😞','😕','😐','🙂','😊'][v-1]);}
 
 /* ================= 弹窗表单 ================= */
 function sheet(html){$('#sheet').innerHTML=html;$('#overlay').classList.add('show');}
@@ -690,43 +510,16 @@ function saveDiaper(){
   addRec('diaper',d);closeSheet();
   if(d.color==='发白/陶土色'||d.color==='带血丝')setTimeout(()=>alert('⚠️ 大便颜色异常（'+d.color+'）—— 请拍照留存，今天尽快带去医院检查！'),300);
 }
-let cryTags=[];
-function openCry(){
-  cryTags=[];
-  const lf=lastFeedBefore(Date.now());
-  sheet(`<h3>😭 记录哭闹<button class="x" onclick="closeSheet()">✕</button></h3>
-  ${lf?`<div class="adv" style="margin-bottom:12px;">上下文：上次喂奶 ${fmtT(lf.ts)}（${((Date.now()-lf.ts)/36e5).toFixed(1)} 小时前）${latestOf('temp')?' · 最近体温 '+latestOf('temp').d.v+'℃':''}</div>`:''}
-  <div class="field"><label>当时看到的情况（可多选，选得越全推断越准）</label>
-  <div class="tagwrap" id="ctags">${CRY_TAGS.map(t=>`<button data-k="${t.k}" onclick="cryTag(this)">${t.txt}</button>`).join('')}</div></div>
-  <div class="field"><label>补充描述（可选）</label><textarea id="cnote" placeholder="如：抱着也哭，放床上蹬腿"></textarea></div>
-  <button class="savebtn" onclick="saveCry()">推断并保存</button>`);
-}
-function cryTag(el){el.classList.toggle('sel');}
-function saveCry(){
-  const ks=[...document.querySelectorAll('#ctags .sel')].map(b=>b.dataset.k);
-  const tags=CRY_TAGS.filter(t=>ks.includes(t.k)).map(t=>t.txt);
-  const res=inferCry(Object.fromEntries(ks.map(k=>[k,true])),Date.now());
-  const note=$('#cnote').value.trim();
-  addRec('cry',{tags:tags,res:res,note:note});
-  closeSheet();switchTab('cry');
-}
 function openTemp(){
   sheet(`<h3>🌡️ 记体温<button class="x" onclick="closeSheet()">✕</button></h3>
   <div class="field"><label>腋下体温（℃）</label><input id="tv" type="number" step="0.1" inputmode="decimal" placeholder="如 36.8"></div>
   <div class="adv" style="margin-bottom:12px;">💡 新生儿正常 36.0-37.2℃；≥37.3℃ 半小时后复测，<b>≥37.5℃ 或 <36.0℃ 直接就医</b>。</div>
   <button class="savebtn" onclick="addNum('temp','tv','体温','℃')">保存</button>`);
 }
-function openJaun(){
-  sheet(`<h3>🟡 记黄疸（经皮）<button class="x" onclick="closeSheet()">✕</button></h3>
-  <div class="field"><label>经皮黄疸值</label><input id="jv" type="number" step="0.1" inputmode="decimal" placeholder="如 10.9"></div>
-  <div class="field"><label>备注（可选）</label><input id="jn" placeholder="如：面颊+胸口平均值"></div>
-  <div class="adv" style="margin-bottom:12px;">💡 母乳性黄疸：平稳或下降就继续观察；持续上升、或大便发白/尿染黄深 → 立即就医。42天检查记得复查。</div>
-  <button class="savebtn" onclick="addNum('jaun','jv','黄疸','', 'jn')">保存</button>`);
-}
 function openWeight(){
   sheet(`<h3>⚖️ 记体重（g）<button class="x" onclick="closeSheet()">✕</button></h3>
   <div class="field"><label>体重（克）</label><input id="wv" type="number" inputmode="numeric" placeholder="如 3640"></div>
-  <div class="adv" style="margin-bottom:12px;">💡 新生儿期约 25-30 g/天；每周称 1-2 次、固定同一秤。</div>
+  <div class="adv" style="margin-bottom:12px;">💡 满月后约 150-200 g/周；每周固定同一秤称 1 次即可，趋势比单次数值更重要。</div>
   <button class="savebtn" onclick="addNum('weight','wv','体重','g')">保存</button>`);
 }
 function openSpit(){
@@ -738,15 +531,6 @@ function openSpit(){
 }
 function saveSpit(){const v=segVal('sv');addRec('spit',{v:v,note:$('#sn').value.trim()});closeSheet();
   if(v==='大量/喷射')setTimeout(()=>alert('⚠️ 喷射状呕吐建议今天就医排查（幽门狭窄等）'),300);}
-function openSkin(){
-  sheet(`<h3>🩹 记皮肤问题<button class="x" onclick="closeSheet()">✕</button></h3>
-  ${seg('sk',[{v:'湿疹',t:'湿疹'},{v:'红屁股',t:'红屁股'},{v:'鹅口疮',t:'鹅口疮'},{v:'其他',t:'其他'}])}
-  <div class="field"><label>描述（可选）</label><textarea id="skn" placeholder="部位、程度、用了什么"></textarea></div>
-  <div class="adv" style="margin-bottom:12px;">💡 湿疹：保湿霜足量涂；红屁股：勤换+晾+护臀膏；鹅口疮（口腔白膜擦不掉）：就医开制霉菌素，奶瓶奶嘴煮沸消毒。</div>
-  <button class="savebtn" onclick="saveSkin()">保存</button>`);
-}
-function saveSkin(){addRec('skin',{kind:segVal('sk'),note:$('#skn').value.trim()});closeSheet();}
-function openMood(){setMood(4);switchTab('mom');}
 function openNote(){
   sheet(`<h3>📝 自由记录<button class="x" onclick="closeSheet()">✕</button></h3>
   <div class="field"><textarea id="nt" placeholder="今天发生的事、医生嘱咐…"></textarea></div>
@@ -769,7 +553,7 @@ function openSettings(){
   <button class="btn2" onclick="exportData()">📤 导出备份（下载 JSON 文件）</button>
   <button class="btn2" onclick="$('#impFile').click()">📥 导入备份</button>
   <input type="file" id="impFile" accept=".json" style="display:none" onchange="importData(this)">
-  <button class="btn2" onclick="alert('安安喂养台 v1\\n出生：2026-10-26\\n数据仅存本机\\n喂奶/尿布/哭闹/疫苗/妈妈 五大板块')">ℹ️ 关于</button>
+  <button class="btn2" onclick="alert('安安喂养台 精简版\\n出生：2026-10-26\\n数据仅存本机\\n喂奶 / 睡眠 / 尿布 / 体重 / 疫苗')">ℹ️ 关于</button>
   `);
 }
 function exportData(){
@@ -796,7 +580,7 @@ function vacHint(){
 /* ================= 渲染 ================= */
 let TAB='today';
 const h0=location.hash.replace('#','');
-if(['today','log','cry','vacc','mom'].indexOf(h0)>=0)TAB=h0;
+if(['today','log','vacc'].indexOf(h0)>=0)TAB=h0;
 function switchTab(t){
   TAB=t;
   document.querySelectorAll('#tabs button').forEach(b=>b.classList.toggle('active',b.dataset.t===t));
@@ -808,11 +592,9 @@ function render(){
   const fm=new Date(BIRTH.getTime()+30*864e5);
   $('#ageLine').textContent='出生第 '+ad+' 天 · '+(Date.now()<fm.getTime()?'距满月 '+daysUntil(fm)+' 天':'已满月');
   $('#vacHint').innerHTML=vacHint();
-  if(TAB==='today'){$('#main').innerHTML=viewToday();paintNews();}
+  if(TAB==='today'){$('#main').innerHTML=viewToday();}
   else if(TAB==='log')$('#main').innerHTML=viewLog();
-  else if(TAB==='cry')$('#main').innerHTML=viewCry();
   else if(TAB==='vacc')$('#main').innerHTML=viewVacc();
-  else if(TAB==='mom')$('#main').innerHTML=viewMom();
   if(TAB==='feed')renderFeedAmount();
 }
 document.addEventListener('change',e=>{if(e.target.id==='fmode')renderFeedAmount();});
@@ -840,37 +622,8 @@ window.addEventListener('load',function(){
     else if(_installEvt) showInstall();
   },2500);
 });
-/* ===== 今日要闻（news.json 由豆豆每日更新） ===== */
-const NEWS_KEY='anan_news_cache';
-var NEWS=null;
-try{NEWS=JSON.parse(localStorage.getItem(NEWS_KEY));}catch(e){}
-function newsCardHtml(){
-  if(!NEWS||!NEWS.items||!NEWS.items.length)return '<div class="muted">暂无资讯 · 连网打开本页会自动获取</div>';
-  return NEWS.items.map(function(n,i){
-    return '<div class="newsitem" onclick="openNews('+i+')"><div class="nt">'+n.title+'</div><div class="nm"><span class="ntag '+(n.tag||'健康')+'">'+(n.tag||'健康')+'</span><span>'+n.date+'</span><span style="flex:1"></span><span>'+n.src+'</span></div></div>';
-  }).join('')+('<div class="muted" style="font-size:11px;margin-top:6px;">更新于 '+(NEWS.updated||'—')+' · 点条目看详情</div>');
-}
-function paintNews(){
-  var w=$('#newswrap'),u=$('#newsup');
-  if(w)w.innerHTML=newsCardHtml();
-  if(u)u.textContent=NEWS&&NEWS.updated?('更新 '+NEWS.updated):'';
-}
-function refreshNews(){
-  if(location.protocol==='file:'){paintNews();return;}
-  fetch('./news.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null;}).then(function(j){
-    if(j&&j.items){NEWS=j;try{localStorage.setItem(NEWS_KEY,JSON.stringify(j));}catch(e){}paintNews();}
-  }).catch(function(){paintNews();});
-}
-function openNews(i){
-  if(!NEWS||!NEWS.items||!NEWS.items[i])return;
-  var n=NEWS.items[i];
-  sheet('<h3 style="margin:0 0 8px;">📰 '+n.title+'<button class="x" onclick="closeSheet()">✕</button></h3>'+
-    '<div class="muted" style="font-size:12px;margin-bottom:10px;"><span class="ntag '+(n.tag||'健康')+'">'+(n.tag||'健康')+'</span> '+n.date+' · 来源：'+n.src+'</div>'+
-    '<div style="font-size:14px;line-height:1.7;">'+n.body+'</div>');
-}
 applyHashData();
 render();
-refreshNews();
 if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').catch(function(){});}
 </script>
 </body>
