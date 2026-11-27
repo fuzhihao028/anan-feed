@@ -306,7 +306,7 @@ function viewToday(){
   const cd=daysUntil(new Date(2026,11,7));
   const momLine=cd>0?`<div class="vacstrip" style="margin-top:0;">👩 42天产后检查 <b>12月7日 · 还有 ${cd} 天</b></div>`:
     (cd>=-7?'<div class="vacstrip" style="margin-top:0;">👩 42天产后检查已到期，尽快预约（B超/盆底肌/伤口 + 安安体检）</div>':'');
-  const sleepV=slp?'睡觉中 · '+fmtDur(Date.now()-slp.start):(Math.floor(st.sleepMin/60)+'h'+(st.sleepMin%60?st.sleepMin%60+'m':''));
+  const sleepV=slp?'睡觉中 · 已睡 '+fmtDur(Date.now()-slp.d.start):(Math.floor(st.sleepMin/60)+'h'+(st.sleepMin%60?st.sleepMin%60+'m':''));
   return `
   <div class="quick">
     <div class="qbtn" onclick="openFeed()"><div class="ic">🍼</div><p>记喂奶</p></div>
@@ -456,7 +456,7 @@ function closeSheet(){$('#overlay').classList.remove('show');}
 function seg(id,opts,sel){
   return `<div class="seg" id="${id}">${opts.map((o,i)=>`<button class="${i===(sel||0)?'sel':''}" data-v="${o.v}" onclick="segSel('${id}',this)">${o.t}</button>`).join('')}</div>`;
 }
-function segSel(id,el){[...el.parentNode.children].forEach(b=>b.classList.remove('sel'));el.classList.add('sel');}
+function segSel(id,el){[...el.parentNode.children].forEach(b=>b.classList.remove('sel'));el.classList.add('sel');if(id==='fmode'&&typeof renderFeedAmount==='function')renderFeedAmount();}
 function segVal(id){const b=$('#'+id).querySelector('.sel');return b?b.dataset.v:null;}
 
 function openFeed(){
@@ -595,9 +595,7 @@ function render(){
   if(TAB==='today'){$('#main').innerHTML=viewToday();}
   else if(TAB==='log')$('#main').innerHTML=viewLog();
   else if(TAB==='vacc')$('#main').innerHTML=viewVacc();
-  if(TAB==='feed')renderFeedAmount();
 }
-document.addEventListener('change',e=>{if(e.target.id==='fmode')renderFeedAmount();});
 
 /* ===== 安卓 / PWA 安装 ===== */
 var _installEvt=null;
